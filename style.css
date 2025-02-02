@@ -1,0 +1,93 @@
+:root {
+  --main-bg: #faf5f5;
+  --white: #ffffff;
+  --red: #e94d58;
+  --grey: #868585;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /* 62.5% equates to 16px w/ rems w/o locking into pixel size for accessibility */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  font-family: "Nunito", sans-serif;
+
+  .wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 700;
+
+    .gif {
+      height: auto;
+      @media screen and (max-width: 576px) {
+        width: 80%;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 3.7rem;
+      color: var(--red);
+      margin: 15px 0;
+      @media screen and (max-width: 576px) {
+        font-size: 3.1rem;
+      }
+    }
+
+    .btn-group {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+
+      .btn {
+        position: absolute;
+        width: 150px;
+        height: inherit;
+        color: var(--white);
+        font-size: 1.9rem;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 0 2px 4px var(--grey);
+        border: 2px solid var(--red);
+        @media screen and (max-width: 576px) {
+          width: 145px;
+        }
+      }
+
+      .yes-btn {
+        margin-left: -200px;
+        background-color: var(--red);
+        @media screen and (max-width: 576px) {
+          margin-left: -170px;
+        }
+      }
+
+      .no-btn {
+        margin-right: -200px;
+        background-color: var(--white);
+        color: var(--red);
+        overflow-x: hidden;
+        @media screen and (max-width: 576px) {
+          margin-right: -170px;
+        }
+      }
+    }
+  }
+}
