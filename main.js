@@ -1,12 +1,43 @@
 const wrapper = document.querySelector(".wrapper");
 const question = document.querySelector(".question");
-const gif = document.querySelector(".gif");
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const btnGroup = document.querySelector(".btn-group");
 
+// Lista de GIFs que quieres mostrar
+const gifs = [
+  "https://media.tenor.com/rXePenApRK4AAAAj/minecraft.gif",
+  "https://media.tenor.com/rXePenApRK4AAAAj/minecraft.gif",
+  "https://media.tenor.com/rXePenApRK4AAAAj/minecraft.gif",
+];
+
+yesBtn.addEventListener("click", () => {
+  question.innerHTML = "Me haces muy feliz! <br> Te amo mucho mucho mucho :3";
+
+  // Crear un contenedor para los GIFs (si no existe)
+  let gifContainer = document.querySelector(".gif-container");
+  if (!gifContainer) {
+    gifContainer = document.createElement("div");
+    gifContainer.classList.add("gif-container");
+    wrapper.appendChild(gifContainer);
+  }
+
+  // Limpiar GIFs anteriores antes de agregar nuevos
+  gifContainer.innerHTML = "";
+
+  // Agregar cada GIF al contenedor
+  gifs.forEach((src) => {
+    const newGif = document.createElement("img");
+    newGif.src = src;
+    newGif.classList.add("gif"); // Puedes agregarle estilos con CSS
+    gifContainer.appendChild(newGif);
+  });
+
+  // Ocultar los botones
+  btnGroup.style.display = "none";
+});
+
 // Función para mover el botón aleatoriamente
-// Function to do the button random movement 
 function moveButton() {
   const maxX = window.innerWidth - noBtn.clientWidth;
   const maxY = window.innerHeight - noBtn.clientHeight;
@@ -18,34 +49,16 @@ function moveButton() {
   noBtn.style.top = randomY + "px";
 }
 
-// Agregar evento de clic al botón "sip"
-yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Te amo mucho, mi amor :3";
-  gif.src = "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
-  //This will hide the buttons that are inside a div, after you have the response
-  //Esto oculta a los dos botones tomando el div que los contiene, después de responder la pregunta :3
-  btnGroup.style.display = "none";
-});
-
-// Mouseover event in big screens
 // Evento mouseover para pantallas grandes
 noBtn.addEventListener("mouseover", moveButton);
 
-
-// Touch events for small devices
-// Eventos táctiles para dispositivos pequeños
+// Evento táctil para dispositivos pequeños
 noBtn.addEventListener("touchstart", (event) => {
-  moveButton(); // Mover el botón al tocar la pantalla
-  event.preventDefault(); // Evitar el comportamiento táctil predeterminado
+  moveButton();
+  event.preventDefault();
 });
 
-// Evento de clic para pantallas pequeñas (opcional)
-noBtn.addEventListener("click", () => {
-  moveButton(); // Mover el botón al hacer clic (opcional)
-});
-
-// Deshabilitar el evento de mouseover en pantallas pequeñas
-// Disable mouseover event in small screens
+// Ajustar eventos según el tamaño de la pantalla
 function handleScreenSizeChange() {
   if (window.innerWidth <= 768) {
     noBtn.removeEventListener("mouseover", moveButton);
@@ -54,10 +67,5 @@ function handleScreenSizeChange() {
   }
 }
 
-// Escuchar cambios en el tamaño de la ventana
-// Listen the screen size change
 window.addEventListener("resize", handleScreenSizeChange);
-
-// Inicializar el manejo de eventos para el tamaño de pantalla actual
-// Start to handle the events for the current screen size
 handleScreenSizeChange();
