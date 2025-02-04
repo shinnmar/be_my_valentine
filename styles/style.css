@@ -1,5 +1,4 @@
 :root {
-  --main-bg: #faf5f5;
   --white: #ffffff;
   --red: #e94d58;
   --grey: #868585;
@@ -27,6 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(82, 167, 252);
   background-image: url("../assets/img/minecraft_bg.png");
   background-size: cover;
   font-family: "Minecraft", sans-serif;
