@@ -54,11 +54,26 @@ body {
       font-size: 3.7rem;
       letter-spacing: 5px;
       font-weight: 100;
-      color: #ffffff;
+      color: var(--white);
       margin: 15px 0;
+      text-shadow: 2px 2px 2px rgb(7, 73, 179);
       @media (max-width: 576px) {
         font-size: 2.8rem;
       }
+    }
+
+    span {
+      position: relative;
+    }
+
+    span::after {
+      content: "";
+      background-image: url("../assets/img//heart.png");
+      background-size: cover;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
     }
 
     .btn-group {
@@ -84,20 +99,6 @@ body {
         background-size: auto;
         @media screen and (max-width: 576px) {
           width: 145px;
-        }
-
-        span {
-          position: relative;
-        }
-
-        span::after {
-          content: "";
-          background-image: url("../assets/img//heart.png");
-          background-size: cover;
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          vertical-align: middle;
         }
       }
 
