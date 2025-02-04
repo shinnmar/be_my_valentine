@@ -5,6 +5,13 @@
   --grey: #868585;
 }
 
+@font-face {
+  font-family: "Minecraft";
+  src: url("../assets/fonts/Minecraft.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,8 +27,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white);
-  font-family: "Nunito", sans-serif;
+  background-image: linear-gradient(
+    173.1deg,
+    rgba(226, 66, 249, 0.94) 10.2%,
+    rgba(79, 147, 249, 1) 77.3%
+  );
+  font-family: "Minecraft", sans-serif;
 
   .wrapper {
     height: 100vh;
@@ -29,11 +40,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-weight: 700;
+
+    @media (max-width: 576px) {
+      padding: 2rem;
+    }
 
     .gif {
       height: auto;
-      @media screen and (max-width: 576px) {
+      @media (max-width: 576px) {
         width: 80%;
       }
     }
@@ -41,10 +55,12 @@ body {
     h2 {
       text-align: center;
       font-size: 3.7rem;
-      color: var(--red);
+      letter-spacing: 5px;
+      font-weight: 100;
+      color: #ffffff;
       margin: 15px 0;
-      @media screen and (max-width: 576px) {
-        font-size: 3.1rem;
+      @media (max-width: 576px) {
+        font-size: 2.8rem;
       }
     }
 
@@ -57,24 +73,40 @@ body {
 
       .btn {
         position: absolute;
-        width: 150px;
-        height: inherit;
-        color: var(--white);
+        width: 16rem;
+        height: 6.3rem;
+        color: #000000;
         font-size: 1.9rem;
-        border-radius: 30px;
         outline: none;
+        border: none;
         cursor: pointer;
+        font-family: "Minecraft", sans-serif;
         box-shadow: 0 2px 4px var(--grey);
-        border: 2px solid var(--red);
+        letter-spacing: 2px;
+        background-image: url("../assets/img/minecraft-sign.png");
+        background-size: auto;
         @media screen and (max-width: 576px) {
           width: 145px;
+        }
+
+        span {
+          position: relative;
+        }
+
+        span::after {
+          content: "";
+          background-image: url("../assets/img//heart.png");
+          background-size: cover;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
         }
       }
 
       .yes-btn {
         margin-left: -200px;
-        background-color: var(--red);
-        @media screen and (max-width: 576px) {
+        @media (max-width: 576px) {
           margin-left: -170px;
         }
       }
@@ -82,9 +114,9 @@ body {
       .no-btn {
         margin-right: -200px;
         background-color: var(--white);
-        color: var(--red);
+        color: #000000;
         overflow-x: hidden;
-        @media screen and (max-width: 576px) {
+        @media (max-width: 576px) {
           margin-right: -170px;
         }
       }
