@@ -21,7 +21,7 @@ function moveButton() {
 // Agregar evento de clic al botón "sip"
 yesBtn.addEventListener("click", () => {
   question.innerHTML =
-    "Yo también quiero ser tu San Valentin  <br> <br> Te amo mi Cristians :3 <3";
+    "Contigo todos los dias es San Valentin. <br> <br> Te amo mi Cristians :3 <3";
   gif.src = "https://media.tenor.com/rXePenApRK4AAAAj/minecraft.gif";
   //This will hide the buttons that are inside a div, after you have the response
   //Esto oculta a los dos botones tomando el div que los contiene, después de responder la pregunta :3
